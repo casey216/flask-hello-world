@@ -30,10 +30,9 @@ def api():
     city = get_country(ip)
     temp = get_temp(ip)
     output_data = {
-        "ip": request.remote_addr,
-        "name": name,
-        "temp": temp,
-        "city": city
+        "client_ip": request.remote_addr,
+        "location": city,
+        "greeting": f"Hello {name}!, the temperature is {temp} degrees Celcius in {city}",
     }
     return jsonify(output_data)
 
@@ -42,7 +41,7 @@ def get_country(ip):
     try:
         response = requests.get(f"http://ip-api.com/json/{ip}")
         j_response = response.json()
-        country = j_response['countryCode']
+        country = j_response['city']
         return country
     except Exception:
         print(response)
