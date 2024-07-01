@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_session import Session
 
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -27,9 +28,11 @@ def api():
     name = request.args.get("visitor_name")
     ip = request.remote_addr
     city = get_country(ip)
+    temp = get_temp(ip)
     output_data = {
         "ip": request.remote_addr,
         "name": name,
+        "temp": temp,
         "city": city
     }
     return jsonify(output_data)
@@ -44,6 +47,18 @@ def get_country(ip):
     except Exception:
         print(response)
         return "Unknown"
+
+def get_temp(ip):
+    key = os.environ.get('TEMP_API')
+    try:
+        response = requests.get(f"http://api.weatherapi.com/v1/current.json?key={key}&q={ip}")
+        j_response = response.json()
+        temp = j_response['current']['temp_c']
+        return country
+    except Exception:
+        print(response)
+        return "Unknown"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
