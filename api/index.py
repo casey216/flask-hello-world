@@ -35,6 +35,7 @@ def api():
     return jsonify(output_data)
 
 def get_country(ip):
+    response = {}
     try:
         response = requests.get(f"http://ip-api.com/json/{ip}")
         j_response = response.json()
