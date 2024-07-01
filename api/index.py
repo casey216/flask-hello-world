@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-app.config['JSON_SORT_KEYS'] = False
+app.json.sort_keys = False
 
 @app.route('/api/hello')
 def api():
