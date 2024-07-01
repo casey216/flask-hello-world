@@ -39,7 +39,7 @@ def get_country(ip):
         country = j_response['country_code']
         return country
     except Exception:
-        return "Unknown"
+        return response
 
 if __name__ == "__main__":
     app.run(debug=True)
