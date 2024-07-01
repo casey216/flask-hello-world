@@ -39,7 +39,7 @@ def get_country(ip):
     try:
         response = requests.get(f"http://ip-api.com/json/{ip}")
         j_response = response.json()
-        country = j_response['country_code']
+        country = j_response['countryCode']
         return country
     except Exception:
         print(response)
