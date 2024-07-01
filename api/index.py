@@ -18,7 +18,7 @@ def after_request(response):
 
 @app.route('/')
 def home():
-    return 'Hello, World! I'm here!!!'
+    return 'Hello, World! I am here!!!'
 
 @app.route('/api/hello')
 def api():
