@@ -54,7 +54,7 @@ def get_temp(ip):
         response = requests.get(f"http://api.weatherapi.com/v1/current.json?key={key}&q={ip}")
         j_response = response.json()
         temp = j_response['current']['temp_c']
-        return country
+        return temp
     except Exception:
         print(response)
         return "Unknown"
