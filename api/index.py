@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_session import Session
 
+import requests
+
 app = Flask(__name__)
 
 app.config["SESSION_PERMANENT"] = False
@@ -34,7 +36,7 @@ def api():
 
 def get_country(ip):
     try:
-        response = request.get(f"http://ip-api.com/json/{ip}")
+        response = requests.get(f"http://ip-api.com/json/{ip}")
         j_response = response.json()
         country = j_response['country_code']
         return country
