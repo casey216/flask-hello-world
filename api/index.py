@@ -10,8 +10,8 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 
 # Configure application
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'f8cd36459b1fd3cca1ad410b3543b321'
-app.config["JWT_SECRET_KEY"] = '0d386d07e1201a76008d74334dab4a54'
+app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
+app.config["JWT_SECRET_KEY"] = os.environ.get('JWT_SECRET')
 app.config['JWT_TOKEN_LOCATION'] = ['headers']
 app.json.sort_keys = False
 jwt = JWTManager(app)
