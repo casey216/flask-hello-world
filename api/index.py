@@ -159,8 +159,8 @@ def login():
             "accessToken": access_token,
             "user": {
                 "userId": rows[0]["userid"],
-                "firstName": rows[0]["firstName"],
-                "lastName": rows[0]["lastName"],
+                "firstName": rows[0]["firstname"],
+                "lastName": rows[0]["lastname"],
                 "email": rows[0]["email"],
                 "phone": rows[0]["phone"]
             }
@@ -187,8 +187,8 @@ def get_user(id):
             "message": "<message>",
             "data": {
                 "userId": rows[0]["userid"],
-                "firstName": rows[0]["firstName"],
-                "lastName": rows[0]["lastName"],
+                "firstName": rows[0]["firstname"],
+                "lastName": rows[0]["lastname"],
                 "email": rows[0]["email"],
                 "phone": rows[0]["phone"],
             }
