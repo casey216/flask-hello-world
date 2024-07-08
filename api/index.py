@@ -17,7 +17,7 @@ app.json.sort_keys = False
 jwt = JWTManager(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL(os.envron.get('DATABASE_URI'))
+db = SQL(os.environ.get('DATABASE_URI'))
 
 @app.route("/")
 def index():
