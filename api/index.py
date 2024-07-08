@@ -58,6 +58,8 @@ def register():
     
     try:
         userid = str(uuid4())
+        if not data['phone']:
+            data['phone'] = None
         db.execute(
             "INSERT INTO users (userid, firstname, lastname, email, password, phone) VALUES(?, ?, ?, ?, ?, ?)",
             userid,
