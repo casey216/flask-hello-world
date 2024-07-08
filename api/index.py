@@ -151,7 +151,7 @@ def login():
         }
 
         return response, 401
-    access_token = create_access_token(identity=rows[0]["userId"], expires_delta=timedelta(minutes=5))
+    access_token = create_access_token(identity=rows[0]["userid"], expires_delta=timedelta(minutes=5))
     response = {
         "status": "success",
         "message": "Login successful",
