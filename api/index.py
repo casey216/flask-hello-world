@@ -158,7 +158,7 @@ def login():
         "data": {
             "accessToken": access_token,
             "user": {
-                "userId": rows[0]["userId"],
+                "userId": rows[0]["userid"],
                 "firstName": rows[0]["firstName"],
                 "lastName": rows[0]["lastName"],
                 "email": rows[0]["email"],
@@ -186,7 +186,7 @@ def get_user(id):
             "status": "success",
             "message": "<message>",
             "data": {
-                "userId": rows[0]["userId"],
+                "userId": rows[0]["userid"],
                 "firstName": rows[0]["firstName"],
                 "lastName": rows[0]["lastName"],
                 "email": rows[0]["email"],
@@ -334,7 +334,7 @@ def add_organisation_user(orgId):
         
                         data['userId'])
         rows = db.execute("INSERT INTO records (user_id, org_id) VALUES (?, ?)",
-                          rows[0]['userId'], orgId)
+                          rows[0]['userid'], orgId)
         response = {
             "status": "success",
             "message": "User added to organisation successfully",
