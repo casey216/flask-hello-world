@@ -1,4 +1,5 @@
 import traceback
+import os
 from uuid import uuid4
 from datetime import timedelta
 
@@ -16,7 +17,7 @@ app.json.sort_keys = False
 jwt = JWTManager(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("postgresql://default:pTUob8tcKq6H@ep-yellow-tooth-a49c4s4t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require")
+db = SQL(os.envron.get('DATABASE_URI'))
 
 @app.route("/")
 def index():
