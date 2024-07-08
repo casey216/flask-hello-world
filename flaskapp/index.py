@@ -16,7 +16,7 @@ app.json.sort_keys = False
 jwt = JWTManager(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("postgresql://stage_2_user:stage_2_user@localhost:5432/stage_2")
+db = SQL("postgresql://default:pTUob8tcKq6H@ep-yellow-tooth-a49c4s4t.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require")
 
 @app.route("/")
 def index():
