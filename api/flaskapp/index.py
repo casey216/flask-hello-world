@@ -23,7 +23,7 @@ db = SQL(os.environ.get('DATABASE_URI'))
 def index():
     return "Welcome to flask"
 
-@app.route("/auth/register", methods=["POST"])
+@app.route("/api/auth/register", methods=["POST"])
 def register():
     if request.is_json:
         data = request.json
@@ -112,7 +112,7 @@ def register():
 
         return response, 400
 
-@app.route("/auth/login", methods=["POST"])
+@app.route("/api/auth/login", methods=["POST"])
 def login():
     if request.is_json:
         data = request.json
@@ -169,7 +169,7 @@ def login():
 
     return response, 200
 
-@app.route("/api/users/<id>")
+@app.route("/api/api/users/<id>")
 @jwt_required()
 def get_user(id):
     user_id = get_jwt_identity()
@@ -202,7 +202,7 @@ def get_user(id):
     
     return response, code
 
-@app.route("/api/organisations", methods=["GET", "POST"])
+@app.route("/api/api/organisations", methods=["GET", "POST"])
 @jwt_required()
 def get_organisations():
     user_id = get_jwt_identity()
@@ -282,7 +282,7 @@ def get_organisations():
 
         return response, code
 
-@app.route("/api/organisations/<orgId>")
+@app.route("/api/api/organisations/<orgId>")
 @jwt_required()
 def get_organisation(orgId):
     user_id = get_jwt_identity()
@@ -310,7 +310,7 @@ def get_organisation(orgId):
         return response, 401
        
 
-@app.route("/api/organisations/<orgId>/users", methods=["POST"])
+@app.route("/api/api/organisations/<orgId>/users", methods=["POST"])
 @jwt_required()
 def add_organisation_user(orgId):
     if request.is_json:
