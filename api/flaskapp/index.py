@@ -4,7 +4,7 @@ from uuid import uuid4
 from datetime import timedelta
 
 from cs50 import SQL
-from flask import Flask, request, json
+from flask import Flask, request, json, redirect, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
@@ -22,6 +22,10 @@ db = SQL(os.environ.get('DATABASE_URI'))
 @app.route("/")
 def index():
     return "Welcome to flask"
+
+@app.route("/auth/register", methods=["POST"])
+def _register():
+    return redirect(url_for('register'))
 
 @app.route("/api/auth/register", methods=["POST"])
 def register():
@@ -111,6 +115,10 @@ def register():
         print(traceback.format_exc())
 
         return response, 400
+
+@app.route("/auth/login", methods=["POST"])
+def _login():
+    return redirect(url_for('login'))
 
 @app.route("/api/auth/login", methods=["POST"])
 def login():
