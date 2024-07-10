@@ -25,7 +25,7 @@ def index():
 
 @app.route("/auth/register", methods=["POST"])
 def _register():
-    return redirect(url_for('register'))
+    return redirect(url_for('register'), code=307)
 
 @app.route("/api/auth/register", methods=["POST"])
 def register():
@@ -118,7 +118,7 @@ def register():
 
 @app.route("/auth/login", methods=["POST"])
 def _login():
-    return redirect(url_for('login'))
+    return redirect(url_for('login'), code=307)
 
 @app.route("/api/auth/login", methods=["POST"])
 def login():
